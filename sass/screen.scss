@@ -1,0 +1,707 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+@mixin fa($font-size, $paddingtop, $paddingright) {
+    font-size: $font-size;
+    padding: #{$paddingtop} #{$paddingright};
+}
+@mixin marks($position,$top,$left,$font-size,$color,$letterspacing) {
+	position: $position;
+	top: $top;
+	left: $left;
+    font-size: $font-size;
+    color: $color;
+    letter-spacing: $letterspacing;
+}
+@mixin field1($display,$width,$padding-left,$padding-top,$font-size,$color) {
+	display: $display;
+	width: $width;
+	padding-left: $padding-left;
+	padding-top: $padding-top;
+    font-size: $font-size;
+    color: $color;
+}
+@mixin field2($letterspacing,$line-height,$text-align,$text-transform) {
+	letter-spacing: $letterspacing;
+	line-height: $line-height;
+	text-align: $text-align;
+	text-transform: $text-transform;
+}
+@mixin item($height,$margin-bottom,$background,$border) {
+	height: $height;
+	margin-bottom: $margin-bottom;
+	background: $background;
+	border: $border;
+}
+@mixin text($font-weight,$font-size,$color){
+	font-weight:$font-weight;
+	font-size: $font-size;
+	color: $color;
+}
+@mixin famix($position,$top,$left){
+	position: $position;
+	top: $top;
+	left: $left;
+}
+@mixin icon($width,$height,$position,$top,$left,$background){
+	width: $width;
+	height: $height;
+	position: $position;
+	top: $top;
+	left: $left;
+	background: $background;
+}
+body {
+	position: relative;
+    width:1638px;
+    height: 2826px;
+    min-height: 100%;
+    margin: 0 auto;
+    background: #f9f9fb;
+    color: #333333;
+    header {
+    	width:1638px;
+	    background: #212429;
+	    min-height: 345px;
+	    .fa {
+	    	color:#ffffff;
+	    	&:hover {
+	    		color: #999999;
+    			cursor: pointer;
+	    }
+	    }
+	    a {
+	    	margin-left:654px;
+    		text-decoration: none;
+    		span {
+    			color:#ffffff;
+			    font-family: 'Hind:600', sans-serif;
+			    font-size:19px;
+			    margin-left:4px;
+			    letter-spacing: 4.5px;
+    	}
+	    }
+	    .fa-bars,.fa-rss,.fa-tumblr,.fa-search{
+		    border-right: 1px solid #3c3c3c;
+		    border-left: 1px solid #3c3c3c;
+		}
+		.fa-bars {
+		    margin-left:55px;
+		    @include fa(20px,16px,21px);
+		}
+		.fa-rss {
+			@include fa(15px,16px,23px);
+		    margin-left:377px;
+		}
+		.fa-twitter {
+			@include fa(14px,16px,14px);
+		}
+		.fa-tumblr {
+			@include fa(14px,16px,22px);
+		}
+		.fa-facebook {
+			@include fa(17px,16px,12px);
+		}
+		.fa-search {
+			@include fa(16px,16px,21px);
+		}
+
+    }
+    main {
+    	position: relative;
+	    width: 1530px;
+	    margin: 289px auto 414px;
+	    background: #f9f9fb;
+	    .main-image {
+	    	@include famix(absolute,-578px,0)
+		}
+		.news {
+			@include marks(absolute,-352px,97px,19px,#ffffff,3.3px);
+		    font-family: 'Hind:600', sans-serif;
+		}
+		.maintext {
+			@include marks(absolute,-317px,98px,40px,#ffffff,3.6px);
+			@include field2(3.6px,50px,left,uppercase);
+		    width: 480px;
+		    display: inline-block;
+		    font-family: 'Hind:700', sans-serif;
+		}
+		.marks {
+		    position: absolute;
+		    top:-318px;
+		    right:72px;
+		    .mark {
+			    height: 6px;
+			    width: 6px;
+			    border: 1px solid #ffffff;
+			    margin:8px;
+			    &:hover {
+				    background: #999999;
+				    cursor: pointer;
+				}
+			}
+		}
+		.article {
+			@include marks(absolute,-416px,1461px,12px,#ffffff,3.6px);
+		    -webkit-writing-mode: vertical-rl;
+		    -webkit-transform: rotate(180deg);
+		    transform: rotate(180deg);
+		    text-transform: uppercase;
+		    height: 250px;
+		    font-family: 'Hind:600', sans-serif;
+		    &:before {
+			    content: "\27F5";
+			    font-size: 25px;
+			    vertical-align: middle;
+			}
+			&:after {
+			    content: "\27F6";
+			    font-size: 25px;
+			    vertical-align: middle;
+			}
+			&:hover:before,&:hover:after {
+		    	cursor: pointer;
+		    }
+		}
+		.forms {
+		    width: 1530px;
+		    margin: 0 auto 80px;
+		    background: #f7f7f7;
+		    .name, .mail,.button{
+			    vertical-align: top;
+			}
+			.label {
+				@include field1(inline-block,224px,29px,26px,20px,#212121);
+				@include field2(4px,25px,left,uppercase);
+			    font-family: 'Montserrat:700', sans-serif;
+			    font-weight: bold;
+			}
+			.name {
+				@include field1(inline-block,419px,30px,12px,14px,#cfcfcf);
+				@include field2(1px,25px,left,uppercase);
+			    padding-bottom:9px;
+			    margin-top:29px;
+			    border:0;
+			    font-family: 'Hind:300', sans-serif;
+			}
+			.mail {
+				@include field1(inline-block,418px,32px,12px,14px,#cfcfcf);
+				@include field2(1px,25px,left,uppercase);
+			    padding-bottom:9px;
+			    margin-top:29px;
+			    margin-left: 22px;
+			    border:0;
+			    font-family: 'Hind:300', sans-serif;
+			}
+			.button {
+				@include field1(inline-block,282px,72px,8px,14px,#ffffff);
+				@include field2(1.7px,25px,left,uppercase);
+			    height: 50px;
+			    margin-top:27px;
+			    margin-left: 26px;
+			    border:0;
+			    font-family: 'Hind:300', sans-serif;
+			    background: #212121;
+			    &:hover {
+				    box-shadow: 2px 2px 2px #999999;
+				}
+			}
+		}
+		article {
+		    display: flex;
+		    flex-direction:column;
+		    flex-wrap:wrap;
+		    align-content:space-between;
+		    width: 1530px;
+		    height: 1650px;
+		    margin: 0px auto 62px;
+		    .item {
+			    width:360px;
+			    box-sizing: border-box;
+			}
+			.item1 {
+				@include item(480px,30px,#ffffff,1px solid #f1f1f3);
+			    h5 {
+			    	@include field2(1.5px,inherit,center,uppercase);
+			    	@include text(normal,14px,#b4b4b4);
+			    	margin:77px 0 0 0;
+				    font-family: 'Hind', sans-serif;
+			    }
+			    h3 {
+			    	@include field2(1px,inherit,center,uppercase);
+			    	@include text(bold,20px,#212121);
+			    	margin:12px 0 0 0;
+				    font-family: 'Montserrat', sans-serif;
+			    }
+			    .date {
+			   		@include field2(1px,inherit,center,uppercase);
+			   		@include text(normal,14px,#a7a7a7);
+			    	display: block;
+				    margin-top:21px;
+				    font-family: 'Hind', sans-serif;
+			    }
+			    p {
+			    	@include field2(1.6px,28px,center,inherit);
+			    	@include text(normal,15px,#464646);
+					margin-top:13px;
+				    padding: 0 5px 0;
+				    font-family: 'Hind:300', sans-serif;
+			    }
+			    a {
+			    	@include field1(block,116px,5,0,14px,#212121);
+			    	@include field2(1.6px,30px,center,uppercase);
+				    text-decoration: none;
+				    font-weight: bold;
+				    margin: 33px auto;
+				    border-left: 1px solid #d7d7d7;
+				    border-right: 1px solid #d7d7d7;
+				    font-family: 'Hind:400', sans-serif;
+				    &:hover {
+				    	color: #555555;
+				    }
+			    }
+			    .line {
+			    	background: #f7f7f7;
+    				height:1px;
+			    }
+			    .icon1 {
+			    	@include icon(40px,36px,relative,-434px,159px,#212121);
+				    .fa-pencil {
+				    	@include famix(absolute,8px,13px);
+				    	color: #ffffff;
+				    }
+			    }
+			}
+			.item2 {
+				@include item(513px,30px,#ffffff,1px solid #f1f1f3);
+			}
+			.item3 {
+				@include item(489px,0px,url('../img/bgitem.png'),1px solid #f1f1f3);
+				h5 {
+			    	@include field2(1.5px,inherit,center,uppercase);
+			    	@include text(normal,14px,#b4b4b4);
+			    	margin:61px 0 0 0;
+				    font-family: 'Hind', sans-serif;
+			    }
+			    h3 {
+			    	@include field2(1px,inherit,center,uppercase);
+			    	@include text(bold,20px,#212121);
+			    	margin:13px 0 0 0;
+				    font-family: 'Montserrat', sans-serif;
+			    }
+			    .date {
+			   		@include field2(1px,inherit,center,uppercase);
+			   		@include text(normal,14px,#a7a7a7);
+			    	display: block;
+				    margin-top:15px;
+				    font-family: 'Hind', sans-serif;
+			    }
+			    p {
+			    	@include field2(1.6px,28px,center,inherit);
+			    	@include text(normal,15px,#464646);
+					margin-top:17px;
+				    padding: 0 5px 0;
+				    font-family: 'Hind:300', sans-serif;
+			    }
+			     a {
+			    	@include field1(block,116px,5,0,14px,#212121);
+			    	@include field2(1.6px,30px,center,uppercase);
+				    text-decoration: none;
+				    font-weight: bold;
+				    margin: 33px auto;
+				    border-left: 1px solid #d7d7d7;
+				    border-right: 1px solid #d7d7d7;
+				    font-family: 'Hind:400', sans-serif;
+				    &:hover {
+				    	color: #555555;
+				    }
+			    }
+			}
+			.item4 {
+				@include item(555px,67px,#ffffff,1px solid #f1f1f3);
+				.item4-top {
+					height: 255px;
+    				background: #f4f4f4;
+				}
+				h5 {
+			    	@include field2(1.5px,inherit,center,uppercase);
+			    	@include text(normal,14px,#b4b4b4);
+			    	margin:77px 0 0 0;
+				    font-family: 'Hind', sans-serif;
+			    }
+			    h3 {
+			    	@include field2(1px,inherit,center,uppercase);
+			    	@include text(bold,20px,#212121);
+			    	margin:11px 0 0 0;
+				    font-family: 'Montserrat', sans-serif;
+			    }
+			    .date {
+			   		@include field2(1px,inherit,center,uppercase);
+			   		@include text(normal,14px,#a7a7a7);
+			    	display: block;
+				    margin-top:18px;
+				    font-family: 'Hind', sans-serif;
+			    }
+			     a {
+			    	@include field1(block,116px,5,0,14px,#212121);
+			    	@include field2(1.6px,30px,center,uppercase);
+				    text-decoration: none;
+				    font-weight: bold;
+				    margin: 33px auto;
+				    border-left: 1px solid #d7d7d7;
+				    border-right: 1px solid #d7d7d7;
+				    font-family: 'Hind:400', sans-serif;
+				    &:hover {
+				    	color: #555555;
+				    }
+			    }
+			    .line {
+			    	background: #f7f7f7;
+    				height:1px;
+			    }
+			    .icon4 {
+			    	@include icon(40px,36px,relative,-250px,159px,#212121);
+			    	color: #ffffff;
+				    .fa-picture-o {
+				    	@include famix(absolute,8px,10px);
+					}
+				}
+			}
+			.item5 {
+				@include item(329px,48px,#212429,none);
+				p {
+					@include field2(1.6px,28px,center,inherit);
+					@include text(normal,17px,#f0f0f1);
+				    margin-top:13px;
+				    padding: 0 20px 0;
+				    font-family: 'Hind:300', sans-serif;
+				}
+				span {
+					@include field2(1px,inherit,center,uppercase);
+					@include text(normal,14px,#999999);
+				    display: block;
+				    margin-top:28px;
+				    font-family: 'Hind', sans-serif;
+				}
+				.icon5 {
+					@include icon(40px,36px,relative,-18px,159px,#ffffff);
+				    .fa-quote-left {
+				    	@include famix(absolute,8px,10px);
+					    color: #212429;
+					}
+				}
+			}
+			.item6 {
+				@include item(566px,0px,#ffffff,none);
+				.item6-top {
+					height: 224px;
+	   				background: #f4f4f4;
+				}
+				h5 {
+					@include field2(1.5px,inherit,center,uppercase);
+			    	@include text(normal,14px,#b4b4b4);
+			    	margin:-4px 0 0 -10px;
+				    font-family: 'Hind', sans-serif;
+				}
+				h3 {
+			    	@include field2(1px,inherit,center,uppercase);
+			    	@include text(bold,20px,#212121);
+			    	margin:12px 0 0 0;
+				    font-family: 'Montserrat', sans-serif;
+			    }
+			    .date {
+			   		@include field2(1px,inherit,center,uppercase);
+			   		@include text(normal,14px,#a7a7a7);
+			    	display: block;
+				    margin-top:17px;
+				    font-family: 'Hind', sans-serif;
+			    }
+			    video {
+				    position: relative;
+				    top:-36px;
+				}
+				p {
+					@include field2(1.6px,28px,center,inherit);
+					@include text(inherit,15px,#464646);
+				    margin-top:19px;
+				    margin-bottom: 65px;
+				    padding: 0 19px 0;
+				    font-family: 'Hind:300', sans-serif;
+				}
+			    .icon6 {
+			    	@include icon(40px,36px,relative,-244px,159px,#212121);
+				    .fa-play-circle-o {
+				    	@include famix(absolute,5px,10px);
+					    font-size: 26px;
+					    color: #ffffff;
+					}
+				}
+			}
+			.item7 {
+				@include item(398px,50px,#ffffff,none);
+				.icon7 {
+					@include icon(40px,36px,relative,-350px,159px,#212121);
+					color: #ffffff;
+					.fa-pencil {
+						@include famix(absolute,8px,13px);
+					}
+				}
+			}
+			.item8 {
+				@include item(555px,48px,#ffffff,none);
+				box-shadow: 0px 0px 15px 10px #dfdfe1;
+				.img1, .img2, .img3, .img4 {
+				    border-bottom: 1px solid #f8f8f8;
+				    display: inline-block;
+				    height: 127px;
+				    width: 175px;
+				}
+				.img1, .img3 {
+				    border-right: 1px solid #f8f8f8;
+				}
+				h5 {
+				    margin-top:51px;
+				}
+			}
+			.item9 {
+				@include item(177px,48px,#212429,none);
+				a {
+					@include field2(1.6px,28px,center,inherit);
+					@include text(inherit,17px,#ffffff);
+				    display: inline-block;
+				    margin:24px auto 0px;
+				    font-family: 'Hind:300', sans-serif;
+				}
+				.icon9 {
+					@include icon(40px,36px,relative,-18px,159px,#ffffff);
+				    .fa-link {
+				    	@include famix(absolute,10px,11px);
+				    }
+				}
+			}
+			.item10 {
+				@include item(288px,0px,#212429,none);
+				.icon10 {
+					@include icon(40px,36px,relative,-18px,159px,#ffffff);
+				    .fa-windows {
+				    	@include famix(absolute,10px,11px);
+				    	color: #000000;
+				    }
+				}
+			}
+			.item11 {
+				@include item(512px,48px,#ffffff,1px solid #f1f1f3);
+			}
+			.item12 {
+				@include item(481px,70px,#ffffff,1px solid #f1f1f3);
+			}
+			.item13 {
+				@include item(458px,48px,#ffffff,1px solid #f1f1f3);
+				h5 {
+					@include field2(1.5px,inherit,center,uppercase);
+			    	@include text(normal,14px,#b4b4b4);
+			    	margin:16px 0 0 0;
+				    font-family: 'Hind', sans-serif;
+				}
+				h3 {
+			    	@include field2(1px,inherit,center,uppercase);
+			    	@include text(bold,20px,#212121);
+			    	margin:15px 0 0 0;
+				    font-family: 'Montserrat', sans-serif;
+			    }
+			    .date {
+			   		@include field2(1px,inherit,center,uppercase);
+			   		@include text(normal,14px,#a7a7a7);
+			    	display: block;
+				    margin-top:16px;
+				    font-family: 'Hind', sans-serif;
+			    }
+			    .icon13 {
+			    	@include icon(40px,36px,relative,-19px,159px,#212121);
+				    .fa-music {
+				    	@include famix(absolute,8px,9px);
+					}
+				}
+				.circle {
+				    border-radius: 50%;
+				    width:136px;
+				    height: 136px;
+				    margin: 26px auto;
+				    background: #999999;
+				}
+			}
+		}
+    }
+    footer {
+    	position: absolute;
+	    bottom: 0;
+	    width: 100%;
+	    height: 414px;
+	    background: #212429;
+	    div {
+		    display: inline-block;
+		    width: 360px;
+		    margin-left:25px;
+		    vertical-align: top;
+		}
+		.about {
+			margin-left:54px;
+			div{
+			    position: relative;
+			    width: 360px;
+			    height: 148px;
+			    background: #3a3c49;
+			    margin:3px 0px;
+			    span {
+				    position: absolute;
+				    bottom:7px;
+				    right: 19px;
+				    letter-spacing: 1px;
+				    font-size: 34px;
+				    font-family: 'Mrs Saint Delafield', cursive;
+				    transform: rotate(-9deg);
+				    color:#c6c7cc;
+				}
+			}
+			h4 {
+				@include text(bold,16px,#f9f9fb);
+				@include field2(1px,inherit,left,uppercase);
+			    margin-top:58px;
+			    font-family: 'Montserrat', sans-serif;
+			}
+			p {
+				@include field2(1.3px,27px,left,inherit);
+				@include text(normal,15px,#e1e2e2);	
+			    margin:31px 0px 0px 0px;
+			    font-family: 'Hind', sans-serif;
+			}
+		}
+		.tweets {
+			h4 {
+				@include text(bold,16px,#f9f9fb);
+				@include field2(1px,inherit,left,uppercase);
+			    margin-top:58px;
+			    font-family: 'Montserrat', sans-serif;
+			}
+			.fa-twitter {
+				color: #ffffff;
+			    font-size:15px;
+			    margin-top:37px;
+			    vertical-align: top;
+			}
+			h5 {
+			    display: inline-block;
+			    margin: 38px 0px 0px 0px;
+			    padding: 0px 0px 0px 2px;
+			    vertical-align: top;
+			    color: #e1e2e2;
+			    font-size: 14px;
+			    letter-spacing: 1.1px;
+			    font-family: 'Hind', sans-serif;
+			}
+			p {
+			    list-style: none;
+			    font-size: 15px;
+			    margin:11px 0px -4px 22px;
+			    line-height: 26px;
+			    letter-spacing: 1.2px;
+			    font-family: 'Hind', sans-serif;
+			    color: #e1e2e2;
+			}
+		}
+		.insta {
+		    font-size: 0;
+		    h4 {
+				@include text(bold,16px,#f9f9fb);
+				@include field2(1px,inherit,left,uppercase);
+			    margin-top: 61px;
+			    margin-bottom:35px;
+			    font-family: 'Montserrat', sans-serif;
+			}
+			div {
+			    display: inline-block;
+			    width: 118px;
+			    height: 98px;
+			    margin: 0;
+			    border:1px solid #212429;
+			    background: #f9f9fb;
+			}
+		}
+		.comments {
+		    color: #e1e2e2;
+		    font-family: 'Open Sans', sans-serif;
+		    h4 {
+				@include text(bold,16px,#f9f9fb);
+				@include field2(1px,inherit,left,uppercase);
+			    margin-top:58px;
+			    font-family: 'Montserrat', sans-serif;
+			}
+		    h5 {
+			    display: inline-block;
+			    margin: 36px 0px -19px 0px;
+			    padding: 0px 0px 0px 0px;
+			    vertical-align: top;
+			    font-size: 14px;
+			    letter-spacing: 1.1px;
+			}
+			p {
+			    list-style: none;
+			    font-size: 15px;
+			    margin:33px 0px -13px 0px;
+			    line-height: 26px;
+			    letter-spacing: 1.2px;
+			    font-family: 'Hind', sans-serif;
+			}
+			.comments-line {
+			    display: block;
+			    margin-bottom: -8px;
+			    background: #65676a;
+			    height:1px;
+			}
+		}
+		.copyrigth {
+			    display: block;
+			    width: 100%;
+			    position: absolute;
+			    bottom:0;
+			    left:0;
+			    height: 41px;
+			    margin: 0;
+			    background: #17191c;
+			    span {
+			    	@include field2(1.8px,inherit,center,uppercase);
+			    	@include famix(absolute,0px,50%);
+			    	@include text(normal,14px,#747577);
+				    display: inline-block;
+				    margin: 0 auto;
+				    width: 710px;
+				    margin-left: -355px;
+				    padding-top: 10px;
+				    font-family: 'Hind', sans-serif;
+				}
+		}
+    }
+}
+.social {
+   	margin: -11px 0 0 33px;
+   	.comment {
+   		@include field2(1.6px,30px,left,uppercase);
+   		@include text(normal,14px,#c9c9c9);
+	    margin: 0;
+	    padding: 0;
+	    font-family: 'Hind', sans-serif;
+	}
+	.fa {
+		@include text(normal,15px,#464646);
+	}
+	.fa-globe {
+	    margin-left:62px;
+	}
+	.fa-twitter,.fa-facebook,.fa-pinterest {
+	    margin-left:14px;
+	}
+  }
